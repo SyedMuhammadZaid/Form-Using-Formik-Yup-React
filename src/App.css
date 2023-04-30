@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 62.5%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 90%;
+    max-width: 600px;
+    background: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+}
+
+form h3{
+    color: rgb(49, 49, 49);
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+form input, form textarea{
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    outline: 0;
+    border: 0.2px solid rgb(190, 190, 190);
+    padding: 10px 10px;
+    font-size: 1.5rem;
+    background-color: rgba(248, 247, 247, 0.89);
+
+}
+
+form input:focus, form textarea:focus{
+    border: 1px solid #21D4FD ;
+}
+
+form .button{
+    width: 30%;
+    text-align: center;
+    margin: 10px auto;
+    padding: 1rem 0.5rem;
+    border-radius: 15px;
+    outline: 0;
+    border: 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    color: #fff;
+}
+
+.button:hover {
+    transition: 3s ease-in-out;
+    background-image: linear-gradient(19deg, #279ab4 0%, #c54dfd 100%);
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .button:hover svg {
+    stroke-dashoffset: -480;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
