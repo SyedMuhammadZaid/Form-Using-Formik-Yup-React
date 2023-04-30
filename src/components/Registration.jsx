@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
+import { userSchema } from "../schemas";
 
 const Registration = () => {
   const formik = useFormik({
@@ -11,8 +12,11 @@ const Registration = () => {
       textarea: "",
     },
 
+    validationSchema: userSchema,
+
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
+    //   console.log(formik.errors)
     },
   });
 
@@ -20,6 +24,7 @@ const Registration = () => {
     <div className="container">
       <form action="" onSubmit={formik.handleSubmit}>
         <h3>GET IN TOUCH</h3>
+
         <input
           type="text"
           name="fullname"
@@ -27,7 +32,13 @@ const Registration = () => {
           placeholder="Your Full Name"
           value={formik.values.fullname}
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
+
+        {formik.touched.fullname && formik.errors.fullname ? (
+          <p>{formik.errors.fullname}</p>
+        ) : null}
+
         <input
           type="email"
           name="email"
@@ -35,7 +46,12 @@ const Registration = () => {
           placeholder="Your Email"
           value={formik.values.email}
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
+        {formik.touched.email && formik.errors.email ? (
+          <p>{formik.errors.email}</p>
+        ) : null}
+
         <input
           type="password"
           name="password"
@@ -43,7 +59,12 @@ const Registration = () => {
           placeholder="Your password"
           value={formik.values.password}
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
+        {formik.touched.password && formik.errors.password ? (
+          <p>{formik.errors.password}</p>
+        ) : null}
+
         <input
           type="number"
           name="number"
@@ -51,7 +72,12 @@ const Registration = () => {
           placeholder="Your Contact Number"
           value={formik.values.number}
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
+        {formik.touched.number && formik.errors.number ? (
+          <p>{formik.errors.number}</p>
+        ) : null}
+
         <textarea
           name="textarea"
           id=""
@@ -60,7 +86,11 @@ const Registration = () => {
           placeholder="How We Can Help You?"
           value={formik.values.textarea}
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         ></textarea>
+        {formik.touched.textarea && formik.errors.textarea ? (
+          <p>{formik.errors.textarea}</p>
+        ) : null}
 
         <input type="submit" value="Send" className="button" />
       </form>
